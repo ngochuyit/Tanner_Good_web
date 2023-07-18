@@ -1,0 +1,125 @@
+
+:root {
+    --smooth: all 0.3s ease-in;
+  }
+
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 4;
+    display: none;
+  }
+  
+  #overlay.show {
+    display: initial;
+  }
+
+  .container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+  }  
+  /* menu */
+  .navbar__links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background-color: #B8A47E;
+    transition: var(--smooth);
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  
+  .navbar__links.navbar__open {
+    transform: translateX(0);
+    opacity: 1;
+    transition: var(--smooth);
+  }
+  
+  .navbar__link {
+    list-style: none;
+    margin: 30px;
+  }
+  
+  
+  
+  /* menu button */
+  .navbar__icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: var(--smooth);
+    z-index: 6;
+  }
+  
+  .navbar__icon {
+    width: 45px;
+    height: 6px;
+    background-color: white;
+    border-radius: 5px;
+    transition: var(--smooth);
+    position: relative;
+  }
+  
+  .navbar__icon:before,
+  .navbar__icon:after {
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 6px;
+    background-color: white;
+    border-radius: 5px;
+    transition: var(--smooth);
+  }
+  
+  .navbar__icon:before {
+    transform: translateY(-12px);
+  }
+  
+  .navbar__icon:after {
+    transform: translateY(12px);
+  }
+  
+  /* button animation */
+  .open .navbar__icon {
+    transform: translateX(-50px);
+    background: transparent;
+  }
+  
+  .open .navbar__icon:before {
+    transform: rotate(45deg) translate(35px, -35px);
+  }
+  .open .navbar__icon:after {
+    transform: rotate(-45deg) translate(35px, 35px);
+  }
+  
+  @media (min-width: 77em) {
+    .navbar__links {
+      position: initial;
+      transform: translateX(0);
+      opacity: 1;
+      background-color: transparent;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    
+    .navbar__icons {
+      display: none;
+    }
+    .navbar__btn {
+      background-color: var(--gray);
+    }
+  }
+  
+  
